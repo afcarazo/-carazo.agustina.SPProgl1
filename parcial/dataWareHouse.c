@@ -137,7 +137,6 @@ int hardcodearTrabajos(eTrabajo trabajos[],int tam,int cantidad, int* id){
             trabajos[i].idServicio=idServicios[i];
             trabajos[i].isEmpty=0;
             cantidadDeTrabajosCargados++;
-
         }
     }
     return cantidadDeTrabajosCargados;

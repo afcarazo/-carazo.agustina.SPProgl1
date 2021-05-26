@@ -268,7 +268,7 @@ int mostrarAutosColorSelec(eAuto autos[],int tamA, eColor colores[],int tamC, eM
         }
         if(existeAuto==0)
         {
-            printf("\nNo hay ningun auto con el color %s \n", nombreColor);
+            printf("\nNo hay ningun auto de ese color \n");
         }
         printf("---------------------------------------------------------------\n");
     }

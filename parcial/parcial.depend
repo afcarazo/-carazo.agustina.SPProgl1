@@ -108,7 +108,7 @@
 	<string.h>
 	"color.h"
 
-1622037600 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\datawarehouse.c
+1622039451 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\datawarehouse.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -166,7 +166,7 @@
 
 1622034376 c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\cliente.h
 
-1622035867 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\main.c
+1622039624 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\main.c
 	<stdio.h>
 	<stdlib.h>
 	"auto.h"
@@ -185,7 +185,7 @@
 	"trabajo.h"
 	"cliente.h"
 
-1622038487 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\informe.c
+1622039317 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\informe.c
 	"informe.h"
 	<stdio.h>
 	<stdlib.h>

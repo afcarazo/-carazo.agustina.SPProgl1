@@ -57,15 +57,15 @@ int main()
     inicializarTrabajos(trabajos,TAMT);
     int nextIdAuto=3000;
     int nextIdTrabajo=4000;
-    hardcodearAutos(autos,TAMA,10,&nextIdAuto);
-    hardcodearTrabajos(trabajos,TAMT,10,&nextIdTrabajo);
+    //hardcodearAutos(autos,TAMA,10,&nextIdAuto);
+    //hardcodearTrabajos(trabajos,TAMT,10,&nextIdTrabajo);
     char salir= 'n';
     int opcion;
 
     do
     {
         menu();
-        if(utn_getNumero(&opcion, "\nIngrese opcion: ","\nERROR, opcion invalida. \n",1,10,3)==-1)
+        if(utn_getNumero(&opcion, "\nIngrese opcion: ","\nERROR, opcion invalida. \n",1,11,3)==-1)
         {
             printf("\nDesea salir del programa?\n");
             opcion=11;

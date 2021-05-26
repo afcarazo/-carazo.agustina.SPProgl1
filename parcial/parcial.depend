@@ -1,0 +1,86 @@
+# depslib dependency file v1.0
+1621986303 source:c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\auto.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"auto.h"
+
+1621982852 c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\auto.h
+	"marca.h"
+	"color.h"
+	"input.h"
+
+1621909400 source:c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\fecha.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fecha.h"
+
+1621957679 c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\fecha.h
+
+1621986089 source:c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\marca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"marca.h"
+
+1621981049 c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\marca.h
+
+1621986528 source:c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\color.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"color.h"
+
+1621957879 c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\color.h
+
+1621994862 source:c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"auto.h"
+	"color.h"
+	"fecha.h"
+	"marca.h"
+	"servicio.h"
+	"trabajo.h"
+	"input.h"
+	"dataWareHouse.h"
+
+1621986757 c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\servicio.h
+	"auto.h"
+	"fecha.h"
+
+1621983927 c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\trabajo.h
+	"fecha.h"
+	"servicio.h"
+
+1621986660 source:c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\servicio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"servicio.h"
+
+1621986282 source:c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	"trabajo.h"
+
+1621877985 c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\datawarehouse.h
+	"auto.h"
+	"trabajo.h"
+
+1621960483 source:c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\datawarehouse.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dataWareHouse.h"
+	"fecha.h"
+
+1621866230 source:c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\input.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"input.h"
+
+1621866282 c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\input.h
+

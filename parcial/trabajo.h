@@ -3,6 +3,7 @@
 #ifndef TRABAJO_H_INCLUDED
 #define TRABAJO_H_INCLUDED
 
+
 typedef struct{
 int id;
 char patente[20];
@@ -10,6 +11,7 @@ int idServicio;
 eFecha fecha;
 int isEmpty;
 }eTrabajo;
+
 
 
 #endif // TRABAJO_H_INCLUDED
@@ -35,10 +37,12 @@ int inicializarTrabajos(eTrabajo trabajos[],int tam);
  * \param colores[] eColor array de colores
  * \param tamC int largo del array de colores
  * \param id int* puntero al ID del nuevo trabajo
+ * \param clientes[] eCliente array de clientes
+ * \param tamCl int largo del array de clientes
  * \return int Devuelve (-1) si hay Error [Longitud no válida o puntero NULO] - (1) si está todo bien
  *
  */
-int altaTrabajo(eTrabajo trabajos[],int tam, eServicio servicios[],int tamS, eAuto autos[],int tamA, eMarca marcas[],int tamM,eColor colores[],int tamC, int *id);
+int altaTrabajo(eTrabajo trabajos[],int tam, eServicio servicios[],int tamS, eAuto autos[],int tamA, eMarca marcas[],int tamM,eColor colores[],int tamC, int *id,eCliente clientes[],int tamCl);
 /** \brief verifica si se trata de una fecha valida
  *
  * \param fecha eTrabajo fecha del trabajo a ser evaluda
@@ -55,17 +59,15 @@ int validarFechaTrabajo(eTrabajo fecha);
  */
 int buscarLibreTrabajo(eTrabajo trabajo[],int tam);
 
-
 /** \brief muestra un trabajo
  *
- * \param trabajo eTrabajo  trabajo que se mostrara
+ * \param trabajo eTrabajo trabajo que se mostrara
  * \param servicios[] eServicio array de servicios
  * \param tamS int largo del array de servicios
  * \return int Devuelve (-1) si hay Error [Longitud no válida o puntero NULO] - (1) si está todo bien
  *
  */
 int mostrarTrabajo(eTrabajo trabajo, eServicio servicios[],int tamS);
-
 /** \brief imprime el contenido del array de trabajos
  *
  * \param trabajo[] eTrabajo array de trabajos
@@ -75,4 +77,4 @@ int mostrarTrabajo(eTrabajo trabajo, eServicio servicios[],int tamS);
  * \return int Devuelve (-1) si hay Error [Longitud no válida o puntero NULO] - (1) si está todo bien
  *
  */
-int mostrarTrabajos(eTrabajo trabajo[],int tam, eServicio servicios[],int tamS);
+int mostrarTrabajos(eTrabajo trabajo[],int tam,eServicio servicios[],int tamS);

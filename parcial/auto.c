@@ -3,6 +3,7 @@
 #include <string.h>
 #include "auto.h"
 
+
 int inicializarAutos(eAuto lista[], int tam)
 {
     int todoOk=-1;
@@ -12,65 +13,79 @@ int inicializarAutos(eAuto lista[], int tam)
         {
             lista[i].isEmpty=1;
             todoOk=1;
+
         }
     }
     return todoOk;
+
 }
 
-int altaAuto(eAuto lista[], int tam,eMarca marcas[], int tamM,eColor colores[],int tamC, int* id)
+
+int altaAuto(eAuto lista[], int tam,eMarca marcas[], int tamM,eColor colores[],int tamC, int* id,eCliente clientes[],int tamCl)
 {
+
     int todoOk=-1;
     eAuto auxAuto;
     int indice;
 
     system("cls");
     printf("\n-------------------\n");
-    printf("      ALTA AUTO");
+    printf("       ALTA AUTO");
     printf("\n-------------------\n\n");
     printf("ID: %d\n", *id);
 
-    if(lista!=NULL&& tam>0 && id!=NULL && marcas!=NULL&& tamM>0 && colores!=NULL&& tamC>0)
+    if(lista!=NULL&& tam>0 && id!=NULL && marcas!=NULL&& tamM>0 && colores!=NULL&& tamC>0 && clientes!=NULL && tamCl>0)
     {
         indice= buscarLibre(lista,tam);
         if(indice!=-1)
         {
-            mostrarMarcas(marcas,tamM);
-            if(utn_getNumero(&auxAuto.idMarca,"\nIngrese ID marca: ", "\nERROR, El ID introducido no existe.\n",1000,1004,3)==-1)
+            mostrarClientes(clientes,tamCl);
+            if(utn_getNumero(&auxAuto.idCliente,"\nIngrese ID duenio: ", "\nERROR, El ID introducido no existe.\n",6000,6003,3)==-1)
             {
                 printf("\nHa excedido los reintentos disponibles. \n");
             }
             else
             {
-                mostrarColores(colores,tamC);
-                if(utn_getNumero(&auxAuto.idColor,"\nIngrese ID color: ", "\nERROR, El ID introducido no existe.\n",5000,5004,3)==-1)
+
+                mostrarMarcas(marcas,tamM);
+                if(utn_getNumero(&auxAuto.idMarca,"\nIngrese ID marca: ", "\nERROR, El ID introducido no existe.\n",1000,1004,3)==-1)
                 {
                     printf("\nHa excedido los reintentos disponibles. \n");
                 }
                 else
                 {
-                    if(utn_getNumero(&auxAuto.modelo,"\nIngrese modelo: ", "\nERROR, El modelo no existe.\n ",1985,2021,3)==-1)
+                    mostrarColores(colores,tamC);
+                    if(utn_getNumero(&auxAuto.idColor,"\nIngrese ID color: ", "\nERROR, El ID introducido no existe.\n",5000,5004,3)==-1)
                     {
                         printf("\nHa excedido los reintentos disponibles. \n");
                     }
                     else
                     {
-                        if(get_patente(auxAuto.patente,10, "\nIngrese parente: ", "\nERROR, la patente ingresada no es valida.\n",3)==-1)
+
+                        if(utn_getNumero(&auxAuto.modelo,"\nIngrese modelo: ", "\nERROR, El modelo no existe.\n ",1985,2021,3)==-1)
                         {
                             printf("\nHa excedido los reintentos disponibles. \n");
                         }
                         else
                         {
-                            auxAuto.id=*id;
-                            (*id)++;
-                            auxAuto.isEmpty=0;
-                            lista[indice]=auxAuto;
-                            todoOk=1;
+                            if(get_patente(auxAuto.patente,10, "\nIngrese parente: ", "\nERROR, la patente ingresada no es valida.\n",3)==-1)
+                            {
+                                printf("\nHa excedido los reintentos disponibles. \n");
+                            }
+                            else
+                            {
+                                auxAuto.id=*id;
+                                (*id)++;
+                                auxAuto.isEmpty=0;
+                                lista[indice]=auxAuto;
+                                todoOk=1;
+                            }
+
                         }
 
                     }
 
                 }
-
             }
 
         }
@@ -101,7 +116,7 @@ int buscarLibre(eAuto lista[], int tam)
     return indice;
 }
 
-int modificarAuto(eAuto lista[],int tam, eColor colores[],int tamC, eMarca marcas[], int tamM)
+int modificarAuto(eAuto lista[],int tam, eColor colores[],int tamC, eMarca marcas[], int tamM, eCliente clientes[],int tamCl)
 {
     system("cls");
     int todoOk=-1;
@@ -109,9 +124,9 @@ int modificarAuto(eAuto lista[],int tam, eColor colores[],int tamC, eMarca marca
     int indice;
     char respuesta[2];
 
-    if(lista!=NULL&&tam>0&&colores!=NULL && tamC>0 && marcas!=NULL && tamM>0)
+    if(lista!=NULL&&tam>0&&colores!=NULL && tamC>0 && marcas!=NULL && tamM>0 && clientes!=NULL && tamCl>0)
     {
-        mostrarAutos(lista,tam,marcas,tamM,colores,tamC);
+        mostrarAutos(lista, tam,marcas,tamM,colores,tamC,clientes,tamCl);
         printf("\nIngrese la patente del auto que quisiera modificar: ");
         fflush(stdin);
         gets(patente);
@@ -119,7 +134,7 @@ int modificarAuto(eAuto lista[],int tam, eColor colores[],int tamC, eMarca marca
         if(indice!=-1)
         {
             printf("\n ID     Patente   Modelo     Color      Marca       \n");
-            mostrarAuto(lista[indice],colores,tamC,marcas,tamM);
+            mostrarAuto(lista[indice],colores,tamC,marcas,tamM,clientes,tamCl);
             if(utn_getChar(respuesta,2,"\n Esta seguro de que quiere modificar este auto? s/n: ", "ERROR, ingrese s/n\n",3)==-1)
             {
                 printf("\nHa excedido los reintentos disponibles. \n");
@@ -132,6 +147,7 @@ int modificarAuto(eAuto lista[],int tam, eColor colores[],int tamC, eMarca marca
                     {
                         todoOk=1;
                     }
+
                 }
                 else
                 {
@@ -221,23 +237,28 @@ int buscarAuto(eAuto lista[], int tam, char patente[])
         }
     }
     return indice;
+
+
 }
-int mostrarAuto(eAuto unAuto,eColor colores[],int tamC, eMarca marcas[],int tamM)
+int mostrarAuto(eAuto unAuto,eColor colores[],int tamC, eMarca marcas[],int tamM, eCliente clientes[],int tamCl)
 {
     char descripcionColor[20];
     char descripcionMarca[20];
+    char nombreCliente[20];
     int todoOk=-1;
-    if(colores!=NULL && tamC>0 && marcas!=NULL && tamM>0)
+    if(colores!=NULL && tamC>0 && marcas!=NULL && tamM>0 && clientes!=NULL && tamCl>0)
     {
-        if(cargarDescripcionColor(unAuto.idColor,colores,tamC,descripcionColor) && cargarDescripcionMarca(unAuto.idMarca,marcas,tamM,descripcionMarca))
+
+        if(cargarDescripcionColor(unAuto.idColor,colores,tamC,descripcionColor) && cargarDescripcionMarca(unAuto.idMarca,marcas,tamM,descripcionMarca) && cargarNombre(unAuto.idCliente,clientes,tamCl,nombreCliente))
         {
 
-            printf("%d %10s    %d %10s %10s\n"
+            printf("%d %10s    %d %10s %10s %10s\n"
                    ,unAuto.id
                    ,unAuto.patente
                    ,unAuto.modelo
                    ,descripcionColor
                    ,descripcionMarca
+                   ,nombreCliente
                   );
             todoOk=1;
         }
@@ -246,44 +267,44 @@ int mostrarAuto(eAuto unAuto,eColor colores[],int tamC, eMarca marcas[],int tamM
 }
 
 
-int mostrarAutos(eAuto lista[], int tam, eMarca marcas[], int tamM,eColor colores[],int tamC)
+int mostrarAutos(eAuto lista[], int tam, eMarca marcas[], int tamM,eColor colores[],int tamC,eCliente clientes[],int tamCl)
 {
     int flag=1;
     int todoOk=-1;
-    printf("\n----------------------------------------------\n");
-    printf("               Listado de autos\n");
-    printf("\n ID     Patente   Modelo     Color      Marca       \n");
-    printf("----------------------------------------------\n\n");
-    if(lista!=NULL && tam>0 && marcas!=NULL && tamM>0 && colores!=NULL && tamC>0)
+    printf("\n-------------------------------------------------------------------\n");
+    printf("                       Listado de autos\n");
+    printf("\n ID     Patente   Modelo     Color      Marca      Cliente   \n");
+    printf("-------------------------------------------------------------------\n\n");
+    if(lista!=NULL && tam>0 && marcas!=NULL && tamM>0 && colores!=NULL && tamC>0 && clientes!=NULL && tamCl>0)
     {
         for(int i=0; i<tam; i++)
         {
-            if(lista[i].isEmpty==0)
+            if(!lista[i].isEmpty)
             {
-                mostrarAuto(lista[i],colores,tamC,marcas,tamM);
+                mostrarAuto(lista[i],colores,tamC,marcas,tamM,clientes,tamCl);
                 flag=0;
                 todoOk=1;
             }
         }
-        if(flag==1)
+        if(flag)
         {
             printf("        No hay autos que mostrar");
             todoOk=1;
 
         }
 
-        printf("\n----------------------------------------------\n");
+        printf("\n-------------------------------------------------------------------\n");
         printf("\n\n");
     }
     return todoOk;
 }
 
 
-int ordenarAutos(eAuto lista[],int tam, eMarca marcas[],int tamM,eColor colores[],int tamC)
+int ordenarAutos(eAuto lista[],int tam, eMarca marcas[],int tamM,eColor colores[],int tamC,eCliente clientes[],int tamCl)
 {
     int opcion;
     int todoOk=-1;
-    if(lista!=NULL && tam>0&& marcas!=NULL &&tamM>0 && colores!=NULL&&tamC>0)
+    if(lista!=NULL && tam>0&& marcas!=NULL &&tamM>0 && colores!=NULL&&tamC>0 && clientes!=NULL && tamCl>0)
     {
         printf("\nDe que forma quisiera ordenar marca y patente?\n\n");
         printf("1. ascendente\n");
@@ -295,7 +316,7 @@ int ordenarAutos(eAuto lista[],int tam, eMarca marcas[],int tamM,eColor colores[
         else
         {
             organizarAutos(lista,tam,opcion,marcas,tamM);
-            mostrarAutos(lista,tam,marcas,tamM,colores,tamC);
+            mostrarAutos(lista,tam,marcas,tamM,colores,tamC,clientes,tamCl);
             todoOk=1;
         }
 
@@ -351,13 +372,14 @@ int organizarAutos(eAuto autos[],int tam,int ascendenteDescendente, eMarca marca
             break;
 
         }
+
     }
 
     return todoOk;
 }
 
 
-int bajaAuto(eAuto autos[],int tam, eColor colores[],int tamC, eMarca marcas[],int tamM)
+int bajaAuto(eAuto autos[],int tam, eColor colores[],int tamC, eMarca marcas[],int tamM,eCliente clientes[],int tamCl)
 {
     int indice;
     char confirma[2];
@@ -367,9 +389,9 @@ int bajaAuto(eAuto autos[],int tam, eColor colores[],int tamC, eMarca marcas[],i
     printf("\n-------------------\n");
     printf("      BAJA AUTO:");
     printf("\n-------------------\n\n");
-    if(autos!=NULL&&tam>0&&colores!=NULL&&tamC>0 && marcas!=NULL && tamM>0)
+    if(autos!=NULL&&tam>0&&colores!=NULL&&tamC>0 && marcas!=NULL && tamM>0 && clientes!=NULL && tamCl>0)
     {
-        mostrarAutos(autos,tam,marcas,tamM,colores,tamC);
+        mostrarAutos(autos,tam,marcas,tamM,colores,tamC,clientes,tamCl);
         printf("\nIngrese la patente del auto que quisiera dar de baja: ");
         gets(patente);
         printf("\n");
@@ -382,7 +404,7 @@ int bajaAuto(eAuto autos[],int tam, eColor colores[],int tamC, eMarca marcas[],i
         else
         {
             printf("\n ID     Patente   Modelo     Color      Marca       \n");
-            mostrarAuto(autos[indice],colores,tamC,marcas,tamM);
+            mostrarAuto(autos[indice],colores,tamC,marcas,tamM,clientes,tamCl);
             if(utn_getChar(confirma,2,"\n Esta seguro de que quiera dar de baja este auto? s/n: ", "ERROR, no ha ingresado lo solicitado. \n",3)==-1)
             {
                 printf("\nHa excedido los reintentos disponibles. \n");

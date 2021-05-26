@@ -8,7 +8,6 @@ char nombreColor[20];
 
 #endif // COLOR_H_INCLUDED
 
-
 /** \brief Muestra un color
  *
  * \param color eColor color a mostrar

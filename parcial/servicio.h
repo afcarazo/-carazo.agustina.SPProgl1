@@ -25,12 +25,12 @@ void mostrarServicio(eServicio servicio);
  *
  */
 int mostrarServicios(eServicio servicios[], int tam);
-/** \brief permite buscar un servicio por su id
+/** \brief permite saber si se trata de un ID valido o no
  *
  * \param id int ID que se buscara
  * \param servicios[] eServicio array de servicios
  * \param tam int largo del array de servicios
- * \return int Devuelve (-1) si hay Error [Longitud no válida o puntero NULO] - (1) si está todo bien
+ * \return int Devuelve (-1) si hay Error [Longitud no válida o puntero NULO-ID no existe] - (1) si está todo bien y es valido
  *
  */
 int buscarIdSevicio(int id,eServicio servicios[],int tam);

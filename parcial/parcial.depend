@@ -84,3 +84,110 @@
 
 1621866282 c:\users\agust\desktop\primer examen labo\-carazo.agustina.pplabi\parcial\input.h
 
+1622031486 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\auto.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"auto.h"
+
+1622034088 c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\auto.h
+	"marca.h"
+	"color.h"
+	"input.h"
+	"cliente.h"
+
+1621981049 c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\marca.h
+
+1622034418 c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\color.h
+
+1621866282 c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\input.h
+
+1621986528 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\color.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"color.h"
+
+1622037600 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\datawarehouse.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dataWareHouse.h"
+	"fecha.h"
+
+1622034466 c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\datawarehouse.h
+	"auto.h"
+	"trabajo.h"
+
+1622031541 c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\trabajo.h
+	"fecha.h"
+	"servicio.h"
+
+1621957679 c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\fecha.h
+
+1622035176 c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\servicio.h
+	"auto.h"
+	"fecha.h"
+
+1621909400 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\fecha.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"fecha.h"
+
+1621866230 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\input.c
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"input.h"
+
+1621986089 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\marca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"marca.h"
+
+1621986660 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\servicio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"servicio.h"
+
+1622033154 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	"trabajo.h"
+
+1622030976 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"cliente.h"
+
+1622034376 c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\cliente.h
+
+1622035867 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"auto.h"
+	"color.h"
+	"fecha.h"
+	"marca.h"
+	"servicio.h"
+	"trabajo.h"
+	"input.h"
+	"cliente.h"
+	"informe.h"
+	"dataWareHouse.h"
+
+1622034855 c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\informe.h
+	"auto.h"
+	"trabajo.h"
+	"cliente.h"
+
+1622038487 source:c:\users\agust\desktop\segunda parte\-carazo.agustina.spprogl1\parcial\informe.c
+	"informe.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

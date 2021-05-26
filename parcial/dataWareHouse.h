@@ -9,7 +9,7 @@
  * \param tam int largo del array de autos
  * \param cantidad int cantidad de autos hardcodeados
  * \param id int* puntero al ID de autos
- * \return int devuelve la cantidad que pudo cargar
+ * \return int devuelve la cantidad  de autos que pudo cargar
  *
  */
 int hardcodearAutos(eAuto lista[],int tam, int cantidad, int* id);
@@ -19,7 +19,7 @@ int hardcodearAutos(eAuto lista[],int tam, int cantidad, int* id);
  * \param tam int largo del array de trabajos
  * \param cantidad int cantidad de trabajos hardcodeados
  * \param id int* puntero al ID de trabajos
- * \return int devuelve la cantidad de autos que pudo cargar
+ * \return int devuelve la cantidad de trabajos que pudo cargar
  *
  */
 int hardcodearTrabajos(eTrabajo trabajos[],int tam,int cantidad, int* id);

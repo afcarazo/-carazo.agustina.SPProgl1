@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "trabajo.h"
 
-int altaTrabajo(eTrabajo trabajos[],int tam, eServicio servicios[],int tamS, eAuto autos[],int tamA, eMarca marcas[],int tamM,eColor colores[],int tamC, int *id)
+int altaTrabajo(eTrabajo trabajos[],int tam, eServicio servicios[],int tamS, eAuto autos[],int tamA, eMarca marcas[],int tamM,eColor colores[],int tamC, int *id,eCliente clientes[],int tamCl)
 {
     eTrabajo nuevoTrabajo;
     int indiceTrabajo;
@@ -11,10 +11,10 @@ int altaTrabajo(eTrabajo trabajos[],int tam, eServicio servicios[],int tamS, eAu
 
     system("cls");
     printf("\n-------------------\n");
-    printf("    ALTA TRABAJO");
+    printf("     ALTA TRABAJO");
     printf("\n-------------------\n\n");
     printf("ID: %d\n", *id);
-    if(trabajos!=NULL && tam>0 && servicios!=NULL && tamS>0 && autos!=NULL && tamA>0 && colores!=NULL && tamC>0 && marcas!=NULL && tamM>0)
+    if(trabajos!=NULL && tam>0 && servicios!=NULL && tamS>0 && autos!=NULL && tamA>0 && colores!=NULL && tamC>0 && marcas!=NULL && tamM>0 &&clientes!=NULL && tamCl>0)
     {
         indiceTrabajo=buscarLibreTrabajo(trabajos,tam);
         if(indiceTrabajo==-1)
@@ -23,7 +23,7 @@ int altaTrabajo(eTrabajo trabajos[],int tam, eServicio servicios[],int tamS, eAu
         }
         else
         {
-            mostrarAutos(autos,tamA,marcas,tamM,colores,tamC);
+            mostrarAutos(autos,tamA,marcas,tamM,colores,tamC,clientes,tamCl);
             if(get_patente(nuevoTrabajo.patente,10, "\nIngrese patente: ", "\nERROR, la patente ingresada no es valida.\n ",3)==-1)
             {
                 printf("\nHa excedido los reintentos disponibles. \n");
@@ -59,6 +59,7 @@ int altaTrabajo(eTrabajo trabajos[],int tam, eServicio servicios[],int tamS, eAu
                             nuevoTrabajo.isEmpty=0;
                             trabajos[indiceTrabajo]=nuevoTrabajo;
                             todoOk=1;
+
 
                         }
 
@@ -168,13 +169,13 @@ int mostrarTrabajo(eTrabajo trabajo, eServicio servicios[],int tamS)
     char descripcion[20];
     if(cargarDescripcionServicio(trabajo.idServicio,servicios,tamS,descripcion))
     {
-        printf("\n%10s    %d    %10s     %02d/%02d/%d ",trabajo.patente,trabajo.idServicio,descripcion,trabajo.fecha.dia,trabajo.fecha.mes,trabajo.fecha.anio);
+        printf("\n%10s    %d    %10s     %02d/%02d/%d ",trabajo.patente,trabajo.id,descripcion,trabajo.fecha.dia,trabajo.fecha.mes,trabajo.fecha.anio);
     todoOk=1;
     }
     }
 return todoOk;
 }
-int mostrarTrabajos(eTrabajo trabajo[],int tam, eServicio servicios[],int tamS)
+int mostrarTrabajos(eTrabajo trabajo[],int tam,eServicio servicios[],int tamS)
 {
 
     int flag=1;

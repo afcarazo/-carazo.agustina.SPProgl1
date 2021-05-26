@@ -3,16 +3,19 @@
 #include "auto.h"
 #include "color.h"
 #include "fecha.h"
-#include  "marca.h"
+#include "marca.h"
 #include "servicio.h"
 #include "trabajo.h"
 #include "input.h"
+#include "cliente.h"
+#include "informe.h"
 #include "dataWareHouse.h"
 #define TAMM 5
 #define TAMC 5
 #define TAMS 4
-#define TAMA 11
-#define TAMT 15
+#define TAMA 10
+#define TAMT 10
+#define TAMCL 4
 void menu();
 int main()
 {
@@ -43,6 +46,13 @@ int main()
         {2002,"Encerado",400},
         {2003,"Completo",600},
     };
+    eCliente clientes[TAMCL]=
+    {
+        {6000,"Juan", 'm'},
+        {6001,"Carla",'f'},
+        {6002,"Manuel",'m'},
+        {6003,"Lucia",'f'},
+    };
     inicializarAutos(autos,TAMA);
     inicializarTrabajos(trabajos,TAMT);
     int nextIdAuto=3000;
@@ -58,15 +68,14 @@ int main()
         if(utn_getNumero(&opcion, "\nIngrese opcion: ","\nERROR, opcion invalida. \n",1,10,3)==-1)
         {
             printf("\nDesea salir del programa?\n");
-            opcion=10;
+            opcion=11;
         }
-
         switch(opcion)
         {
 
         case 1:
 
-            if(altaAuto(autos,TAMA,marcas,TAMM,colores, TAMC, &nextIdAuto)==1)
+            if(altaAuto(autos,TAMA,marcas,TAMM,colores, TAMC, &nextIdAuto,clientes,TAMCL)==1)
             {
                 printf("\nAlta de auto exitosa\n\n");
             }
@@ -80,7 +89,7 @@ int main()
         case 2:
             if(hayAutosActivos(autos,TAMA)!=0)
             {
-                if(modificarAuto(autos,TAMA,colores,TAMC,marcas,TAMM)==1)
+                if(modificarAuto(autos,TAMA,colores,TAMC,marcas,TAMM,clientes,TAMCL)==1)
                 {
                     printf("La modificacion del auto ha sido exitosa\n");
                 }
@@ -98,7 +107,7 @@ int main()
         case 3:
             if(hayAutosActivos(autos,TAMA)!=0)
             {
-                if(bajaAuto(autos,TAMA,colores,TAMC,marcas,TAMM)==1)
+                if(bajaAuto(autos,TAMA,colores,TAMC,marcas,TAMM,clientes,TAMCL)==1)
                 {
                     printf("\nLa baja del auto ha sido exitosa\n\n");
                 }
@@ -116,9 +125,9 @@ int main()
         case 4:
             if( hayAutosActivos(autos,TAMA)!=0)
             {
-                if(mostrarAutos(autos,TAMA,marcas,TAMM,colores,TAMC)==1)
+                if(mostrarAutos(autos,TAMA,marcas,TAMM,colores,TAMC,clientes,TAMCL)==1)
                 {
-                    ordenarAutos(autos,TAMA,marcas,TAMM,colores,TAMC);
+                    ordenarAutos(autos,TAMA,marcas,TAMM,colores,TAMC,clientes,TAMCL);
                 }
                 else
                 {
@@ -130,6 +139,7 @@ int main()
                 printf("\nPrimero deberias dar de alta un auto.\n\n");
             }
             break;
+
 
         case 5:
 
@@ -167,7 +177,7 @@ int main()
         case 8:
             if(hayAutosActivos(autos,TAMA)!=0)
             {
-                if(altaTrabajo(trabajos,TAMT,servicios,TAMS,autos,TAMA,marcas,TAMM,colores,TAMC,&nextIdTrabajo)==1)
+                if(altaTrabajo(trabajos,TAMT,servicios,TAMS,autos,TAMA,marcas,TAMM,colores,TAMC,&nextIdTrabajo,clientes,TAMCL)==1)
                 {
                     printf("Alta de trabajo exitosa\n");
 
@@ -200,7 +210,23 @@ int main()
             }
             break;
 
-        case 10:
+            case 10:
+            if(hayAutosActivos(autos,TAMA)!=0){
+            if(menuInformes(autos,TAMA,colores,TAMC,marcas,TAMM,servicios,TAMS,trabajos,TAMT,clientes,TAMCL)==1)
+            {
+                //printf("\nMuestra exitosa de informes\n\n");
+            }
+            else
+            {
+                printf("\nHubo un problema al mostrar los informes\n\n");
+            }
+            }else{
+            printf("\nPrimero deberias dar de alta un auto.\n\n");
+            }
+            break;
+
+
+        case 11:
             printf("\nPara confirmar salida ingrese s de lo contrario n: ");
             fflush(stdin);
             scanf("%c", &salir);
@@ -234,6 +260,7 @@ void menu()
     printf("7.  Listar servicios\n");
     printf("8.  Alta trabajo\n");
     printf("9.  Listar trabajos\n");
-    printf("10. Salir\n");
+    printf("10. Informes\n");
+    printf("11. Salir\n");
     printf("\n------------------------\n\n");
 }
